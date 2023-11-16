@@ -1,0 +1,82 @@
+*{
+    font-family: "Calculator";
+    font-weight: bold;
+}
+
+body {
+    background-color: blanchedalmond;
+}
+
+
+
+/* block that contain the calculator */
+.wrapper{
+    border: 2px solid red;
+    height: 96vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* calculator itself */
+.calculator{
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: rgb(193, 193, 193);
+
+    /* is set to noy expand the calculator when adding more values */
+    max-width: 330px;
+    max-height: 500px;
+}
+.calculator > * {
+    font-size: 30px;
+    display: flex;
+}
+
+
+/* results */
+.calculator .results{
+    border: 2px solid black;
+    border-radius: 10px;
+    justify-content: flex-end;
+    padding: 10px;
+    font-size: 50px;
+    background-color: #fcc577;
+    margin-bottom: 15px;
+
+    /* Wraps over so it does not create a new line */
+    white-space: nowrap;
+
+    overflow: hidden;
+
+}
+
+
+/* can you fucking learn how to select these motherfuckers*/
+
+/* Every Button */
+
+.first-row-buttons > *, .second-row-buttons > *, .third-row-buttons > *, .fourth-row-buttons > *, .fifth-row-buttons > *{
+    text-align: center;
+    flex: 1 1 auto;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 20px;
+    width: 40px;
+    margin: 2px;
+}
+
+
+/* fifth row (0 . =) buttons */
+.fifth-row-buttons .zero{
+    width: 123.5px;
+}
+
+.main-button{
+    background-color: #93E9BE;
+}
+.other-button{
+    background-color: 	#fde4c6;
+}
