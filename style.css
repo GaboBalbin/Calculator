@@ -11,7 +11,6 @@ body {
 
 /* block that contain the calculator */
 .wrapper{
-    border: 2px solid red;
     height: 96vh;
     display: flex;
     justify-content: center;
@@ -46,10 +45,6 @@ body {
     background-color: #fcc577;
     margin-bottom: 15px;
 
-    /* Wraps over so it does not create a new line */
-    white-space: nowrap;
-
-    overflow: hidden;
 
 }
 
@@ -69,10 +64,27 @@ body {
 }
 
 
+
+
+.results .number-result{
+
+    max-width: 300px;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.first-row-buttons .AC{
+    width: 210px;
+}
 /* fifth row (0 . =) buttons */
 .fifth-row-buttons .zero{
-    width: 123.5px;
+    width: 130px;
 }
+
+
+
+
 
 .main-button{
     background-color: #93E9BE;

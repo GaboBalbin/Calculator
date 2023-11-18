@@ -1,7 +1,7 @@
 const buttons = document.querySelectorAll('.main-button');
-const result = document.querySelector('.results');
+const result = document.querySelector('.number-result');
 const otherButtons = document.querySelectorAll('.other-button');
-
+const backspace = document.querySelector('#delete');
 
 let buffer = ''
 
@@ -10,6 +10,8 @@ let num1 = NaN;
 let num2 = NaN;
 let operator = NaN;
 let answer = NaN;
+
+// only one decimal only. input that functionality in a later date
 
 
 
@@ -31,6 +33,9 @@ buttons.forEach(button => {
 
 
 
+// I DONT KNOW HOW TO DO BACKSPACE. JUST COME BACK IN A LATER TIME
+
+
 // Give other buttons (AC +/- % / *...) functionality
 otherButtons.forEach(otherButton => {
     otherButton.addEventListener('click', other => {
@@ -41,12 +46,7 @@ otherButtons.forEach(otherButton => {
 
         
         if (other.target.innerText === "AC"){
-            num1 = NaN;
-            num2 = NaN;
-            operator = NaN;
-            answer = NaN;
-            result.innerText = 0
-            buffer = '';
+            flush()
         }
         else if (!isNaN(num1) && isNaN(num2)){
             num2 = result.innerText
@@ -80,7 +80,6 @@ otherButtons.forEach(otherButton => {
 
 
 
-
 function operate(num1, operator, num2){
     if (operator === "+"){
         answer = Number(num1) + Number(num2);
@@ -93,8 +92,23 @@ function operate(num1, operator, num2){
         answer = Number(num1) * Number(num2);
     }
     else if (operator === "/"){
+        // Add a snarky comment when you divide by 0
         answer = Number(num1) / Number(num2);
+        if (answer % 1 !== 0){
+            answer = answer.toFixed(7)
+        }
+        if (num2 == 0){
+            answer = 'Rent is due'
+            // Make it so after displaying, it returns to baseline
+            // Though in the model, it doesnt even flash it. BAD
+
+        }
+        
     }
+    if (operator === "="){
+        // pass
+    }
+
     result.innerText = answer;
     buffer = '';
 }
@@ -102,7 +116,14 @@ function operate(num1, operator, num2){
 
 
 
-
+function flush(){
+    num1 = NaN;
+    num2 = NaN;
+    operator = NaN;
+    answer = NaN;
+    result.innerText = 0
+    buffer = '';
+}
 
 
 
